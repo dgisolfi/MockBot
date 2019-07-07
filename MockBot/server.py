@@ -16,11 +16,6 @@ bot_id = os.getenv('BOT_ID', None)
 group_id = os.getenv('GROUP_ID', None)
 api_token = os.getenv('API_TOKEN', None)
 
-user_id = ''
-bot_id = 'a6f23695345ae6009c7d8ccd4e'
-group_id = '28081262'
-api_token = 'sSZSlKxXJyRd8SqFw5f8vikRNEiMZFWHgWWmCu7N'
-
 # setup bot
 bot = Bot(user_id, bot_id, group_id, api_token)
 
