@@ -10,7 +10,6 @@ from flask import Flask, request
 server = Flask(__name__)
 server.config['JSON_SORT_KEYS'] = False
 
-
 user_id = os.getenv('USER_ID', None)
 bot_id = os.getenv('BOT_ID', None)
 group_id = os.getenv('GROUP_ID', None)
@@ -34,11 +33,13 @@ def webhook():
     data = request.get_json()
     
     if data is not None:
-        print(data)
-        # if bot.checkUser(data):
-        #     response = bot.getResponse(data['text'])
-        #     bot.sendMessage(response)
-        
-        return 'OK', 200
-    return 'No Message Provided', 404
-    
+        if bot.checkUser(data):
+            response = bot.getResponse(data['text'])
+            if bot.sendMessage(response).status_code == 201:
+                return 'Message Sent to User', 201
+            else:
+                return 'Error Sending Message to user', 400
+        else:
+            return 'Incoming message was not sent by the user; no message sent', 200
+    else:
+        return 'No Message Provided', 404

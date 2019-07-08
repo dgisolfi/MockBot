@@ -1,0 +1,16 @@
+# Daniel Gisolfi
+
+version: '2'
+services:
+  bot:
+    build: .
+    env_file: .env
+    ports:
+      - "5050:5050"
+    volumes:
+      - ${PWD}:/bot
+    environment: 
+      USER_ID: $USER_ID
+      BOT_ID: $BOT_ID
+      GROUP_ID: $GROUP_ID
+      API_TOKEN: $API_TOKEN

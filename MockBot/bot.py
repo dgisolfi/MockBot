@@ -46,7 +46,7 @@ class Bot:
         boolean
             True if ....
         """
-        True if callback.user_id == self.user_id else False
+        return True if callback['user_id'] == self.user_id else False
          
         
     def getResponse(self, msg):
