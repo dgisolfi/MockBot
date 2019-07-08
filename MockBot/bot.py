@@ -17,12 +17,16 @@ class Bot:
 
        
     def sendMessage(self, msg):
-        '''Send a message from the bot to its assigned group.
-            Args:
-                msg (str): message to be sent to group
-            Returns:
-                request response
-        '''
+        """Send a message from the bot to its assigned group.
+        Parameters
+        ----------
+        msg : string 
+            message to be sent to group
+        Returns
+        -------
+        response : response
+            the response object returned by the API call
+        """
         # set parameters for post request
         params = {
             'bot_id': self.bot_id,
@@ -36,25 +40,30 @@ class Bot:
         return response
         
     def checkUser(self, callback):
-        """ Check if the message sent was by a ceartin user
+        """ Check if the message sent was by the targeted user
         Parameters
         ----------
         callback : object
-            - An instance of
+            - The Request object sent to the server 
         Returns
         -------
         boolean
-            True if ....
+            True if the user who sent the message is the targeted user
+            False otherwise
         """
-        return True if callback['user_id'] == self.user_id else False
+        return callback['user_id'] == self.user_id
          
         
     def getResponse(self, msg):
-        '''Given a message the appropriate response is returned.
-            Args:
-                msg (str): a message to respond to
-            Returns:
-                response (str): the bot's response to the message
-        '''
+        """Given a message the appropriate response is returned.
+        Parameters
+        ----------
+        msg : string
+            a message to respond to "mockify"
+        Returns
+        -------
+        response : string 
+            The bot's response to the users message
+        """
         # makes a call to the sponegemock package to make the resposne
         return mock(msg)
