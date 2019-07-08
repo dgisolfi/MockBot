@@ -8,7 +8,7 @@ A Bot that responds with the "spongemock" version of a message when sent by a pa
 
 ## Groupme Bot
 
- A GroupMe bot can be created [here](https://dev.groupme.com/bots) and using the Groupme API can send messages to its assigned group. This particular bot uses a callback URL to be notified of new messages. Once notified the message will be parsed and a response will be created if the `USER_ID` of the sender matches that of the `USER_ID` enviormentvariable.
+ A GroupMe bot can be created [here](https://dev.groupme.com/bots) and using the Groupme API can send messages to its assigned group. This particular bot uses a callback URL to be notified of new messages. Once notified the message will be parsed and a response will be created if the `USER_ID` of the sender matches that of the `USER_ID` environment variable.
 
 ## Usage
 
